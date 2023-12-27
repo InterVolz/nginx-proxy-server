@@ -22,6 +22,7 @@ pipeline {
 
                     docker run -d -p 80:80 -p 443:443 \
                         --name nginx-proxy-container \
+                        --network intervolz-network \
                         -v /etc/letsencrypt/live/intervolz.com/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro \
                         -v /etc/letsencrypt/live/intervolz.com/privkey.pem:/etc/nginx/ssl/privkey.pem:ro \
                         -v /etc/letsencrypt/live/bigbadassdude.com/fullchain.pem:/etc/nginx/ssl/fullchain2.pem:ro \
